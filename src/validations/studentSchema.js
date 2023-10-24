@@ -11,10 +11,10 @@ const studentSchema = joi.object({
         'number.min': 'A idade deve ser maior ou igual a 1',
         'number.base': 'O campo idade deve ser um número'
     }),
-    nota_primeiro_semestre: joi.number().messages({
+    nota_primeiro_semestre: joi.number().min(0).max(10).messages({
         'number.base': 'O campo nota_primeiro_semestre deve ser um número'
     }),
-    nota_segundo_semestre: joi.number().messages({
+    nota_segundo_semestre: joi.number().min(0).max(10).messages({
         'number.base': 'O campo nota_segundo_semestre deve ser um número'
     }),
     nome_professor: joi.string().required().messages({
@@ -38,10 +38,10 @@ const updateStudentSchema = joi.object({
         'number.min': 'A idade deve ser maior ou igual a 1',
         'number.base': 'O campo idade deve ser um número'
     }),
-    nota_primeiro_semestre: joi.number().messages({
+    nota_primeiro_semestre: joi.number().min(0).max(10).messages({
         'number.base': 'O campo nota_primeiro_semestre deve ser um número'
     }),
-    nota_segundo_semestre: joi.number().messages({
+    nota_segundo_semestre: joi.number().min(0).max(10).messages({
         'number.base': 'O campo nota_segundo_semestre deve ser um número'
     }),
     nome_professor: joi.string().messages({
