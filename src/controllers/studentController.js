@@ -89,10 +89,29 @@ const updateStudent = async (req, res) => {
     }
 }
 
+const deleteStudent = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const studentFound = await knex("alunos").where({ id }).first();
+
+        if (!studentFound) {
+            return res.status(404).json({ mensagem: "Estudante não encontrado." });
+        }
+
+        await knex('alunos').del().where({ id });
+
+        return res.status(200).json({ mensagem: "Estudante excluído com sucesso!" });
+    } catch (error) {
+        res.status(500).json({ mensagem: 'Erro interno do servidor' });
+    }
+}
+
 
 module.exports = {
     registerStudent,
     getStudents,
     detailStudent,
-    updateStudent
+    updateStudent,
+    deleteStudent
 };
