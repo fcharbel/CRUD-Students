@@ -45,7 +45,12 @@ const getStudents = async (req, res) => {
 const detailStudent = async (req, res) => {
     const { id } = req.params;
     try {
-        const student = await knex('alunos').where({ id });
+        const student = await knex('alunos').where({ id }).first();
+
+        if (!student) {
+            res.status(404).json({ mensagem: 'Estudante não encontrado' })
+        }
+
         res.status(200).json(student);
     } catch (error) {
         res.status(500).json({ mensagem: 'Erro interno do servidor' });
@@ -74,10 +79,10 @@ const updateStudent = async (req, res) => {
                 nome_professor,
                 numero_da_sala
             })
-            .returning("*");
+            .returning('*');
 
-        if (!updatedStudent) {
-            return res.status(400).json({ mensagem: "Erro ao atualizar estudante." });
+        if (updatedStudent.length === 0) {
+            return res.status(400).json({ mensagem: "Estudante não encontrado" });
         }
 
         return res
