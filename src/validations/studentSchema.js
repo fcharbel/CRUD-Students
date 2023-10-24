@@ -12,10 +12,14 @@ const studentSchema = joi.object({
         'number.base': 'O campo idade deve ser um número'
     }),
     nota_primeiro_semestre: joi.number().min(0).max(10).messages({
-        'number.base': 'O campo nota_primeiro_semestre deve ser um número'
+        'number.base': 'O campo nota_primeiro_semestre deve ser um número',
+        'number.min': 'O campo nota_primeiro_semestre deve ser maior ou igual a 0',
+        'number.max': 'O campo nota_primeiro_semestre deve ser menor ou igual a 10',
     }),
     nota_segundo_semestre: joi.number().min(0).max(10).messages({
-        'number.base': 'O campo nota_segundo_semestre deve ser um número'
+        'number.base': 'O campo nota_segundo_semestre deve ser um número',
+        'number.min': 'O campo nota_segundo_semestre deve ser maior ou igual a 0',
+        'number.max': 'O campo nota_segundo_semestre deve ser menor ou igual a 10',
     }),
     nome_professor: joi.string().required().messages({
         'any.required': 'O campo nome_professor é obrigatório',
@@ -39,10 +43,14 @@ const updateStudentSchema = joi.object({
         'number.base': 'O campo idade deve ser um número'
     }),
     nota_primeiro_semestre: joi.number().min(0).max(10).messages({
-        'number.base': 'O campo nota_primeiro_semestre deve ser um número'
+        'number.base': 'O campo nota_primeiro_semestre deve ser um número',
+        'number.min': 'O campo nota_primeiro_semestre deve ser maior ou igual a 0',
+        'number.max': 'O campo nota_primeiro_semestre deve ser menor ou igual a 10',
     }),
     nota_segundo_semestre: joi.number().min(0).max(10).messages({
-        'number.base': 'O campo nota_segundo_semestre deve ser um número'
+        'number.base': 'O campo nota_segundo_semestre deve ser um número',
+        'number.min': 'O campo nota_segundo_semestre deve ser maior ou igual a 0',
+        'number.max': 'O campo nota_segundo_semestre deve ser menor ou igual a 10',
     }),
     nome_professor: joi.string().messages({
         'string.empty': 'O campo nome_professor não pode estar vazio'
