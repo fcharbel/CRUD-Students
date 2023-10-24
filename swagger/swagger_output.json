@@ -8,7 +8,7 @@
   "host": "tame-pear-squirrel.cyclic.app",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "securityDefinitions": {},
   "consumes": [

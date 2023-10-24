@@ -11,7 +11,7 @@ const doc = {
     },
     host: 'tame-pear-squirrel.cyclic.app',
     basePath: '/',
-    schemes: ['http'],
+    schemes: ['https'],
     consumes: ['application/json'],
     produces: ['application/json'],
     tags: [],
